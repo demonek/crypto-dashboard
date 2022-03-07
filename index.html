@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Dashboard</title>
+    <link rel="icon" href="./img/coin.png">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="grid">
+            <section class="chart-panel box">
+                <div class="chart-currency">
+                    <sup>
+                        <img src="https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg" alt="">
+                    </sup>
+                    Bitcoin
+                </div>
+                <div class="chart-box">
+                    <canvas id="chart"></canvas>
+                </div>
+                <div class="chart-time-filters">
+                    <button class="24h-btn btn-active">24h</button>
+                    <button class="7d-btn">7d</button>
+                    <button class="30d-btn">30d</button>
+                    <button class="1y-btn">1y</button>
+                    <button class="5y-btn">5y</button>
+                </div>
+            </section>
+
+
+            <section class="currency-price-panel box">
+
+            </section>
+
+
+            <section class="news-panel box">
+                <div class="news-wrapper">
+                    <h1>News</h1>
+                    <div class="news-hr"></div>
+                    <div class="news">
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="exchange-panel box">
+                <div class="exchange-panel-inputs">
+                    <div class="col-1-3">
+                        <label for="amount-input">Amount</label>
+                        <input type="text" name="amount" id="amount-input">
+                    </div>
+                    <div class="col-1-3">
+                        <label for="basis-currency">From</label>
+                        <select name="from" id="basis-currency"></select>
+                    </div>
+                    <div class="reverse-btn">
+                        <div class="arrow-left"></div>
+                        <div class="arrow-right"></div>
+                    </div>
+                    <div class="col-1-3">
+                        <label for="basis-currency">To</label>
+                        <select name="to" id="final-currency">
+                        </select>
+                    </div>
+                </div>
+                <div class="exchange-panel-outputs">
+                    <span class="convert-output"></span>
+                    <button class="convert-btn">Convert</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

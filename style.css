@@ -1,0 +1,441 @@
+/* Global */
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Helvetica';
+}
+
+html, body{
+    margin: 0;
+    font-size: 18px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.wrapper{
+    background: rgb(0,0,0);
+    background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(33,82,105,1) 32%, rgba(27,118,99,1) 71%, rgba(13,193,85,1) 100%);
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: repeat(4, 200px);
+    grid-gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.chart-panel{
+    grid-column: 1/2;
+    grid-row: span 3;
+}
+
+.currency-price-panel{
+    grid-column: 2/3;
+    grid-row: span 2;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.news-panel{
+    grid-column: 2/3;
+    grid-row: span 2;
+}
+
+.exchange-panel{
+    grid-column: 1/2;
+    grid-row: span 1;
+}
+
+.box{
+    border-radius: 1.5rem;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 7px 9px 15px -7px rgba(76, 82, 109, 1);
+}
+
+/* exchange panel */
+
+.exchange-panel{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1.2rem;
+}
+
+.exchange-panel-inputs, .exchange-panel-outputs{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 50%;
+}
+
+.exchange-panel-inputs{
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.exchange-panel-inputs > *{
+    margin-right: 5px;
+}
+
+.exchange-panel-outputs{
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 0.2vw 0 0.5vw;
+}
+
+.col-1-3{
+    display: flex;
+    flex-flow: column nowrap;
+    flex-basis: 30%;
+    font-weight: bold;
+}
+
+.col-1-3 input, .col-1-3 select{
+    margin-top: 5px;
+    height: 1.8rem;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    font-size: 0.9rem;
+}
+
+.reverse-btn{
+    position: relative;
+    color: blue;
+    height: 100%;
+    flex-basis: 10%;
+}
+
+.arrow-right, .arrow-left{
+    position: absolute;
+    left: 50%;
+    height: 2rem; 
+    width: 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 200ms;
+    user-select: none;
+}
+
+.arrow-right{
+    top: 60%;
+    transform: translateX(-30%);
+    background-image: url("./img/right-arrow.png"); 
+}
+
+.arrow-left{
+    top: 40%;
+    transform: translateX(-70%);
+    background-image: url("./img/left-arrow.png"); 
+}
+
+.reverse-btn:hover{
+    cursor: pointer;
+}
+
+.reverse-btn:hover .arrow-left{
+    transform: translateX(-90%);
+}
+
+.reverse-btn:hover .arrow-right{
+    transform: translateX(-10%);
+}
+
+.convert-btn{
+    height: 2.2rem;
+    width: 5rem;
+    background-color: blue;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.4rem;
+}
+
+.convert-btn:hover{
+    cursor: pointer;
+    background-color: rgb(77, 77, 231);
+}
+
+.convert-output{
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: blue;
+}
+
+/* chart panel */
+
+.chart-panel{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.chart-currency{
+    font-size: 3rem;
+    align-self: center;
+    flex-basis: 15%;
+    padding: 0.5rem;
+}
+
+.chart-currency img{
+    width: 2.5rem;
+}
+
+.chart-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 85%;
+    width: 85%;
+}
+
+#chart{
+    max-height: 99%;
+}
+
+.chart-time-filters{
+    display: flex;
+    width: fit-content;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    grid-gap: 10%;
+    padding: 0.5em 0;
+}
+
+.chart-time-filters > *{
+    border: none;
+    color: blue;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    background: none;
+    outline: none;
+}
+
+.chart-time-filters button:hover{
+    cursor: pointer;
+    color: black;
+}
+
+.btn-active{
+    color: black;
+}
+
+/* currency price panel */
+
+.currency-price-panel{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.currency-row{
+    display: grid;
+    grid-template-columns: 20% 20% 47% 13%;
+    align-items: center;
+    font-size: 1.1rem;
+    width: 90%;
+    height: 20%;
+    margin: 0 auto;
+}
+
+.currency-row img{
+    width: 2rem;
+}
+
+.btn-generate-chart{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    background-image: url(./img/line-chart.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.btn-generate-chart.active, .currency-row button:hover{
+    opacity: 0.7;
+}
+
+.tooltip{
+    text-align: right;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 8rem;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    margin-left: 2rem;
+    border-radius: 0.3vw;
+    position: absolute;
+    z-index: 1;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
+
+/* news panel*/ 
+
+.news-panel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-panel h1{
+    font-size: 2rem;
+    margin: 0;
+}
+
+.news-wrapper{
+    height: 100%;
+    width: 90%;
+    padding: 1rem 0.5rem
+}
+
+.news-hr{
+    height: 1px;
+    width: 100%;
+    background-color: black;
+}
+
+.news{
+    height: 85%;
+    font-size: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.news a{
+    color: blue;
+}
+
+
+@media (max-width: 1650px){
+    .grid{
+        grid-template-columns: 60% 40%;
+    }
+}
+
+@media (max-width: 1366px){
+    .grid{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 20rem 15rem 10rem;
+    }
+    .chart-panel{
+        grid-column: 1/3;
+        grid-row: span 1;
+    }
+    
+    .currency-price-panel{
+        grid-column: 1/2;
+        grid-row: span 1;
+        overflow-y: auto;
+    }
+    
+    .news-panel{
+        grid-column: 2/3;
+        grid-row: span 1;
+    }
+    
+    .exchange-panel{
+        grid-column: 1/3;
+        grid-row: span 1;
+    } 
+    .currency-row{
+        padding: 0.5rem 0;
+    }
+    .box{
+        border-radius: 0;
+    }
+    .tooltiptext {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .grid{
+        align-self: flex-start;
+        grid-template-columns: 100%;
+        grid-template-rows:  repeat(4, 400px);
+    }
+    .chart-panel{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    .currency-price-panel{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    .news-panel{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .exchange-panel{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .exchange-panel-inputs{
+        display: grid;
+        height: 80%;
+    }
+    .reverse-btn{
+        height: 50px;
+        margin: 0.5rem 0;
+    }
+    .arrow-right{
+        top: 30%;
+    }
+    .arrow-left{
+        top: 10%;
+    }
+    .col-1-3{
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .convert-output{
+        font-size: 1.4em;
+    }
+} 
+
+@media (max-width: 500px) {
+    html,body{
+        font-size: 15px;
+    }
+    .grid{
+        grid-template-rows:  repeat(4, 350px);
+    }
+    .convert-output{
+        font-size: 1.2em;
+    }
+}
+
