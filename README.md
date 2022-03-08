@@ -1,6 +1,11 @@
 ﻿# Crypto Dashboard
 
+Two API consumming website with live crypto-currencies price, news, chart and currency converter
+
+# Technologies
+
 HTML CSS JS FETCH CHARTJS
+
 
 # Setup
 
